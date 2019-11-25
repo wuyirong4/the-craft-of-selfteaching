@@ -28,21 +28,25 @@
 
 创建一个新文件，用这样一个语句就可以：
 
-```python,ignore
+
+```python
+
 open('/tmp/test-file.txt', 'w')
 ```
 
-    <_io.TextIOWrapper name='test-file.txt' mode='w' encoding='UTF-8'>
+    <_io.TextIOWrapper name='/tmp/test-file.txt' mode='w' encoding='UTF-8'>
 
 当然，更多的时候，我们会把这个函数的返回值，一个所谓的 [file object](https://docs.python.org/3/glossary.html#term-file-object)，保存到一个变量中，以便后面调用这个 file object 的各种 Methods，比如获取文件名 `file.name`，比如关闭文件 `file.close()`：
 
-```python,ignore
+
+```python
+
 f = open('/tmp/test-file.txt', 'w')
 print(f.name)
 f.close()
 ```
 
-    test-file.txt
+    /tmp/test-file.txt
 
 ## 删除文件
 
@@ -61,14 +65,15 @@ else:
     print(f'{f.name} does not exist.')
 ```
 
-    test-file1.txt
-    test-file1.txt deleted.
+    /tmp/test-file1.txt
+    /tmp/test-file1.txt deleted.
 
 ## 读写文件
 
 创建文件之后，我们可以用 `f.write()` 把数据写入文件，也可以用 `f.read()` 读取文件。
 
-```python,ignore
+```python
+
 f = open('/tmp/test-file.txt', 'w')
 f.write('first line\nsecond line\nthird line\n')
 f.close()
@@ -85,7 +90,9 @@ f.close()
 
 文件有很多行的时候，我们可以用 `file.readline()` 操作，这个 Method 每次调用，都会返回文件中的新一行。
 
-```python,ignore
+
+```python
+
 f = open('/tmp/test-file.txt', 'w')
 f.write('first line\nsecond line\nthird line\n')
 f.close()
@@ -103,7 +110,9 @@ f.close()
 
 **注意**，返回结果好像跟你想的不太一样。这时候，之前见过的 `str.strip()` 就派上用场了：
 
-```python,ignore
+
+```python
+
 f = open('/tmp/test-file.txt', 'w')
 f.write('first line\nsecond line\nthird line\n')
 f.close()
@@ -119,9 +128,11 @@ f.close()
     first line
     second line
 
-与之相对的，我们可以使用 `file.readlines()` 这个命令，将文件作为一个列表返回，列表中的每个元素对应着文件中的每一行：
 
-```python,ignore
+与之相对的，我们可以使用 `file.readlines()` 这个 Method，将文件作为一个列表返回，列表中的每个元素对应着文件中的每一行：
+
+```python
+
 f = open('/tmp/test-file.txt', 'w')
 f.write('first line\nsecond line\nthird line\n')
 f.close()
@@ -136,7 +147,9 @@ f.close()
 
 既然返回的是列表，那么就可以被迭代，逐一访问每一行：
 
-```python,ignore
+
+```python
+
 f = open('/tmp/test-file.txt', 'w')
 f.write('first line\nsecond line\nthird line\n')
 f.close()

@@ -87,8 +87,10 @@ print(next(c))
 print(next(c))
 print(next(c))
 for c in Counter(101, 105):
-    print(c, sep=', ')
-print(type(Counter))
+
+    print(c, end=', ')
+type(Counter)
+
 ```
 
     11
@@ -470,7 +472,7 @@ def an_output():
 ```
 装饰器的执行顺序是 “自下而上” —— 其实是 “由里到外” 更为准确。体会一下。
 
-### 装饰带有参数函数
+### 装饰带有参数的函数
 
 到现在我们见到的使用装饰器的函数都是没有参数的：`an_output` 以及之前的 `a_func`。
 
